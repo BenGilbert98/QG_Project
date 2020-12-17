@@ -1,0 +1,60 @@
+---
+- hosts: local
+  connection: local
+  gather_facts: true
+  become: true
+  vars:
+    key_name: eng74.ben.aws.key
+    region: eu-west-1
+    image: ami-0dc8d444ee2a42d8a
+    id: "Ben Ansible project test_env"
+    sec_group: "sg-0904b0c8ea4132685"
+    subnet_id: subnet-0256f653716b565b8
+    # ansible_python_interpreter: /urs/bin/python3
+
+  tasks:
+
+    - name: Install python dependencies
+      apt:
+        name:
+          - python3
+          - python-pip
+          - python3-pip
+        state: present
+
+
+    - name: Installing pip dependencies
+      pip:
+        name:
+          - boto
+          - boto3
+          - nose
+          - tornado
+          - awscli
+        state: present
+
+    - name: get instance facts
+      ec2_instance_facts:
+        aws_access_key: "{{ aws_access_key  }}"
+        aws_secret_key: "{{ aws_secret_key }}"
+        region: "{{ region }}"
+      register: result
+
+    - name: create ec2 instance
+      ec2:
+        aws_access_key: "{{ aws_access_key }}"
+        aws_secret_key: "{{ aws_secret_key}}"
+        assign_public_ip: true
+        key_name: "{{ key_name }}"
+        id: "{{ id }}"
+        vpc_subnet_id: "{{ subnet_id }}"
+        group_id: "{{ sec_group }}"
+        image: "{{ image }}"
+        instance_type: t2.micro
+        region: "{{ region }}"
+        wait: true
+        instance_tags:
+          Name: eng74-ben-project-test
+
+  tags: ['never', 'create_ec2']
+ # to run type sudo ansible-playbook test_env.yaml --ask-vault --tags create_ec2
