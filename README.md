@@ -22,9 +22,9 @@ _Pre-Requisites_
 
 ### Installing packages
 The necessary packages needed to run this program should automatically be picked up by pycharm. You may find a a few pop ups within the IDE that state there are dependencies missing, if you simply install these through the IDE you should be set up correctly.  
-
+TESTTESTEST
 ### Running tests
-
+TEST
 Too test whether the program will work from your machine:
  
 * Ensure the `config.ini` file has the test environment set to `live`
