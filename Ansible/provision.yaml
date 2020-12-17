@@ -5,7 +5,24 @@
   become: true
 
   tasks:
+  - name: Sync App_Files
+    synchronize:
+      src: /home/ubuntu/app_files
+      dest: /home/ubuntu/
+
+  - name: Update sources lsit
+    apt:
+      update_cache: yes
+
+  - name: Install python dependencies
+    apt:
+      name:
+        - python3
+        - python-pip
+        - python3-pip
+      state: present
+
     - name: install requirements.txt
-      shell: pip install -r requirements.txt
+      shell: pip install -r app_files/requirements.txt
 # pip install -r requirements.txt
 # Copy over ssh key
