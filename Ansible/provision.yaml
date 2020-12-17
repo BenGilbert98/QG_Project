@@ -1,5 +1,11 @@
+---
+- hosts: local
+  connection: local
+  gather_facts: true
+  become: true
 
-
-
-
+  tasks:
+    - name: install requirements.txt
+      shell: pip install -r requirements.txt
 # pip install -r requirements.txt
+# Copy over ssh key
