@@ -25,7 +25,7 @@ The necessary packages needed to run this program should automatically be picked
 
 ### Running tests
 
-To test whether the program will work from your machine:
+Too test whether the program will work from your machine:
  
 * Ensure the `config.ini` file has the test environment set to `live`
 * Click the `Terminal` icon which can be found on the menu in the bottom left of Pycharm.
