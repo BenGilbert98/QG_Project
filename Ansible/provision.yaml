@@ -23,6 +23,6 @@
       state: present
 
   - name: install requirements.txt
-    shell: pip install -r App Files/requirements.txt
+    shell: pip install -r "App Files"/requirements.txt
 # pip install -r requirements.txt
 # Copy over ssh key
