@@ -7,7 +7,7 @@
   tasks:
   - name: Sync App_Files
     synchronize:
-      src: /home/ubuntu/app_files
+      src: /home/ubuntu/App Files
       dest: /home/ubuntu/
 
   - name: Update sources lsit
@@ -22,7 +22,7 @@
         - python3-pip
       state: present
 
-    - name: install requirements.txt
-      shell: pip install -r app_files/requirements.txt
+  - name: install requirements.txt
+    shell: pip install -r App Files/requirements.txt
 # pip install -r requirements.txt
 # Copy over ssh key
