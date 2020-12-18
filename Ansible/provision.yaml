@@ -5,9 +5,9 @@
   become: true
 
   tasks:
-  - name: Sync App_Files
+  - name: Sync app_files
     synchronize:
-      src: /home/ubuntu/"App Files"
+      src: /home/ubuntu/"app_files"
       dest: /home/ubuntu/
 
   - name: Sync Downloads
@@ -28,6 +28,6 @@
       state: present
 
   - name: install requirements.txt
-    shell: pip install -r "App Files"/requirements.txt
+    shell: pip install -r "app_files"/requirements.txt
 # pip install -r requirements.txt
 # Copy over ssh key
