@@ -7,7 +7,12 @@
   tasks:
   - name: Sync App_Files
     synchronize:
-      src: /home/ubuntu/App Files
+      src: /home/ubuntu/"App Files"
+      dest: /home/ubuntu/
+
+  - name: Sync Downloads
+    synchronize:
+      src: /home/ubuntu/Downloads
       dest: /home/ubuntu/
 
   - name: Update sources lsit
