@@ -6,8 +6,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def front_page():
-    file_location = input("Enter file location")
-    df = pd.read_csv(f"{file_location}/ItJobsWatchTop30.csv", encoding= 'unicode_escape')
+    df = pd.read_csv("C:/Users/bengi/PycharmProjects/QG_Project/Downloads/ItJobsWatchTop30.csv", encoding= 'unicode_escape')
     return df.to_html()
 
 
