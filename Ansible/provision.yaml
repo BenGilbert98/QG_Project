@@ -1,5 +1,5 @@
 ---
-- hosts: local
+- hosts: live_env
   connection: local
   gather_facts: true
   become: true
